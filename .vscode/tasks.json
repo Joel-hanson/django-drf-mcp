@@ -1,0 +1,134 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start Django + MCP Server (Integrated)",
+			"type": "shell",
+			"command": "/Users/joelhanson/.pyenv/versions/mcp/bin/python",
+			"args": [
+				"manage.py",
+				"runserver"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"isBackground": true,
+			"problemMatcher": [],
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"detail": "🚀 MAIN: Starts Django with integrated MCP HTTP endpoints at /mcp/"
+		},
+		{
+			"label": "Run Django Migrations",
+			"type": "shell",
+			"command": "/Users/joelhanson/.pyenv/versions/mcp/bin/python",
+			"args": [
+				"manage.py",
+				"migrate"
+			],
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "Create Django Migrations",
+			"type": "shell",
+			"command": "/Users/joelhanson/.pyenv/versions/mcp/bin/python",
+			"args": [
+				"manage.py",
+				"makemigrations"
+			],
+			"group": "build",
+			"problemMatcher": []
+		},
+		{
+			"label": "Test MCP Integration",
+			"type": "shell",
+			"command": "/Users/joelhanson/.pyenv/versions/mcp/bin/python",
+			"args": [
+				"test_django_mcp_integration.py"
+			],
+			"group": "test",
+			"problemMatcher": [],
+			"detail": "🧪 Test both REST API and MCP HTTP endpoints"
+		},
+		{
+			"label": "Test MCP HTTP Endpoint",
+			"type": "shell",
+			"command": "curl",
+			"args": [
+				"-X",
+				"POST",
+				"http://127.0.0.1:8000/mcp/",
+				"-H",
+				"Content-Type: application/json",
+				"-d",
+				"{\"jsonrpc\": \"2.0\", \"id\": 1, \"method\": \"tools/list\", \"params\": {}}"
+			],
+			"group": "test",
+			"problemMatcher": [],
+			"detail": "🔗 Test MCP HTTP endpoint directly"
+		},
+		{
+			"label": "Universal MCP - Scan Project",
+			"type": "shell",
+			"command": "/Users/joelhanson/.pyenv/versions/mcp/bin/python",
+			"args": [
+				"manage.py",
+				"start_mcp",
+				"--scan"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"detail": "🔍 Scan project for DRF ViewSets and show what MCP tools would be created"
+		},
+		{
+			"label": "Universal MCP - Integrate into Django",
+			"type": "shell",
+			"command": "/Users/joelhanson/.pyenv/versions/mcp/bin/python",
+			"args": [
+				"manage.py",
+				"start_mcp",
+				"--integrate"
+			],
+			"group": "build",
+			"problemMatcher": [],
+			"detail": "🔗 Generate code to integrate MCP directly into Django app"
+		},
+		{
+			"label": "Universal MCP - Start Integrated Server",
+			"type": "shell",
+			"command": "/Users/joelhanson/.pyenv/versions/mcp/bin/python",
+			"args": [
+				"manage.py",
+				"start_mcp",
+				"--runserver"
+			],
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": [],
+			"detail": "🚀 Start Django server with integrated MCP endpoint"
+		},
+		{
+			"label": "Universal MCP - Start Standalone Server",
+			"type": "shell",
+			"command": "/Users/joelhanson/.pyenv/versions/mcp/bin/python",
+			"args": [
+				"manage.py",
+				"start_mcp",
+				"--port",
+				"8001"
+			],
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": [],
+			"detail": "🚀 Start standalone MCP server on port 8001"
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+    "servers": {
+        "django-mcp-integrated": {
+            "type": "http",
+            "url": "http://127.0.0.1:8000/mcp-integrated/"
+        },
+        "django-mcp-middleware": {
+            "type": "http",
+            "url": "http://127.0.0.1:8000/mcp/"
+        },
+        "django-mcp-standalone": {
+            "type": "http",
+            "url": "http://127.0.0.1:8001/mcp/"
+        }
+    }
+}

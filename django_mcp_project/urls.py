@@ -18,10 +18,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-from users.views import MCPView
+# Import the universal MCP view (auto-discovers all ViewSets)
+from django_mcp_project.mcp_view import CustomMCPView, MCPView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("mcp-integrated/", MCPView.as_view(), name="mcp-integrated"),
+    path("mcp/", MCPView.as_view(), name="mcp"),
     path("", include("users.urls")),
 ]
